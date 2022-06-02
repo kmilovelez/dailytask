@@ -1,0 +1,12 @@
+import {config} from 'dotenv'
+config();
+
+//console.log(process.env);
+
+export default {
+    port: process.env.PORT || 3000,
+    user: process.env.USER,
+    password : process.env.PASSWORD,
+    server:process.env.SERVER,
+    database:process.env.DATABASE,
+}
