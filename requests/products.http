@@ -1,0 +1,19 @@
+@api = http://localhost:4000/products
+###
+GET {{api}}
+
+###
+POST {{api}}
+Content-Type: application/json
+
+{
+    "name":"bobina1",
+    "description": "bobina motor1",
+    "quantity":100
+}
+
+###
+GET {{api}}/2
+
+###
+DELETE {{api}}/2

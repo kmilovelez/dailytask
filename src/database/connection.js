@@ -1,12 +1,12 @@
 import sql from 'mssql'
-// import './database/connection'
+import config from '../config'
 
 
-const dbsettings ={
-    user: 'sa',
-    password:'Matec2021*',
-    server:'localhost',//P-JVELEZ',
-    database:'MLIDB_BAG_DEV',
+const sql_settings ={
+    user:       config.user,
+    password:   config.password,
+    server:     config.server,
+    database:   config.database,
     options: {
         encrypt: true, // for azure
         trustServerCertificate: true // change to true for local dev / self-signed certs
@@ -14,15 +14,13 @@ const dbsettings ={
 };
 
 
-async function getConnection(){
+export async function getConnection(){
     try {
-        const pool = await sql.connect(dbsettings);
+        const pool = await sql.connect(sql_settings);
         return pool;
-        // const result= await pool.request().query('select 1');
-        // console.log(result);
     } catch (error) {
         console.log(error)
     }
 }
-
-getConnection();
+// export {sql, getConnection}
+export {sql}
