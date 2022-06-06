@@ -15,7 +15,7 @@ try {
 };
 
 export const createNewProduct = async (req, res) =>{
-    
+
     const {name, description} = req.body;
     let  {quantity} = req.body;
 
@@ -36,7 +36,7 @@ try {
 
     // console.log (name,description,quantity);
     res.json({name,description,quantity});
-    
+
 } catch (error) {
     res.status(500);
     res.send(error.message);
@@ -46,17 +46,17 @@ try {
 
 export const getProductsById = async  (req, res) =>{
     const {id} = req.params;
-    
+
     try {
 
         const pool  = await getConnection();
         const result = await pool.request()
         .input('id', sql.Int,id)
         .query(query.getProductById);
-    
+
         // console.log (name,description,quantity);
         res.json(result.recordset[0]);
-        
+
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -65,14 +65,14 @@ export const getProductsById = async  (req, res) =>{
 
 export const deleteProductById = async (req, res)=>{
     const {id} = req.params;
-    
+
     try {
 
         const pool  = await getConnection();
         const result = await pool.request()
         .input('id', sql.Int,id)
         .query(query.deleteProductById);
-    
+
         // res.json(result);
         res.sendStatus(204);
     } catch (error) {
