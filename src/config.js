@@ -4,8 +4,8 @@ config();
 
 export default { 
     port :      process.env.PORT || 3000, 
-    user:       process.env.USER ,
-    password :  process.env.PASSWORD,
-    server :    process.env.SERVER,
-    database:   process.env.DATABASE,
+    user:       process.env.SQL_AZURE_USER ,
+    password :  process.env.SQL_AZURE_PASSWORD,
+    server :    process.env.SQL_AZURE_SERVER,
+    database:   process.env.SQL_AZURE_DATABSE,
 }
